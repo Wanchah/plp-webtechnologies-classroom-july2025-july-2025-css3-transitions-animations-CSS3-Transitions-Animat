@@ -1,0 +1,96 @@
+/* Part 1: CSS Transitions & Animations */
+
+/* Button hover effect */
+.animated-btn {
+  padding: 12px 24px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.4s ease, transform 0.3s ease;
+}
+.animated-btn:hover {
+  background-color: #1e2f3a;
+  transform: scale(1.1);
+}
+
+/* Fade-in box */
+.fade-box {
+  width: 200px;
+  height: 100px;
+  background-color: #0c612f;
+  border-radius: 10px;
+  opacity: 0;
+  animation: fadeIn 2s ease-in forwards;
+  animation-delay: 1s;
+}
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+/* Continuous slide + transform */
+.slide-box {
+  width: 100px;
+  height: 100px;
+  background-color: #0f8d94;
+  border-radius: 50%;
+  animation: slideBounce 3s ease-in-out infinite;
+}
+@keyframes slideBounce {
+  0% { transform: translateX(0) scale(1); }
+  50% { transform: translateX(200px) scale(1.2); }
+  100% { transform: translateX(0) scale(1); }
+}
+
+/* Part 3: JS-triggered animation */
+.box {
+  width: 150px;
+  height: 150px;
+  background-color: #324959;
+  border-radius: 10px;
+  margin-top: 30px;
+  transition: transform 0.4s ease, background-color 0.4s ease;
+}
+.box.active {
+  transform: scale(1.2) rotate(10deg);
+  background-color: #2e40cc;
+}
+.spinner {
+  width: 100px;
+  height: 100px;
+  border: 10px solid #345302;
+  border-top: 10px solid #db7734;
+  border-radius: 50%;
+  position: relative;
+  margin-top: 20px; /* Add space below spinner */
+  margin-bottom: 20px;
+  
+  z-index: 1;           /* Ensure spinner stays behind button if needed */
+}
+
+.roll {
+  animation: roll 3s ease-in-out forwards;
+}
+
+@keyframes roll {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(900px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+button {
+  margin-top: 10px;
+  margin-bottom: 40px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  z-index: 2; /* Ensure button stays clickable */
+}
